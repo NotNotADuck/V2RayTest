@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'dev.dev7.example'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "dev.dev7.example"
+        minSdk 21
+        targetSdk 33
+        versionCode 4
+        versionName "2.053"
+        setProperty("archivesBaseName", rootProject.name + "-" + versionName)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation project(path: ':v2ray')
+
+}
